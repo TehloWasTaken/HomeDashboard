@@ -102,3 +102,23 @@ The data for my private Minecraft Server has been exported to Grafana using a pl
 
 This plugin is installed on your Minecraft server, and will export all your data to Prometheus (Influx isn't currently supported :( )
 With this you can export an absolute TON of data. I was surprised as to how much it collects, but all of it is really useful. It even has support for some of the more known and frequently used Plugins, so if you use any of those you can even see your data of that. I myself don't run a Bungee network, but it has support for Bungee networks too!
+
+## Pi-Hole
+We all know that ad-blockers don't really work on browsers, and they certainly do not work on mobile devices. I remembered that during my IT study I came across a neat tool called Pi-Hole, which would block ads on a network based level. A few months ago I found this again as some of my current friends were using it again, and it got me interested aswell.
+
+For those that don't know, Pi-Hole is a network based adblocker which will act as your DNS server and will block the domains on where ads are coming from. This will result in no ads on all of the devices on your network, as long as you set your primary DNS to your Pi-Hole. You can add your own lists of domains to block, I myself mainly use [this one](https://firebog.net/)
+
+Pi-Hole itself has a really nice dashboard, but once again I wanted to see this in Grafana too. Luckily, [Pi-Hole Exporter]https://github.com/eko/pihole-exporter exists! With this, you can take all the data from your Pi-Hole and export it to Grafana. For my own dashboard I used a few of the metrics from the default dash that comes with Exporter, which I changed and fit to my own needs.
+
+It is a bit of a pain to setup, so do take your time with this as it is a very tedious process.
+
+## Plex
+Now we get to the part that I am most excited about. Before any of this homelab stuff, I was already using Plex. I had used a Plex from a friend of mine for years, but since he wasn't always around I wanted to watch movies at times he wasn't available, and the movies weren't in his library. So, I resulted to creating my own Plex server. Do note, all these movies and shows take up a TON of storage, so be wary of that as next thing you know you're sitting on a 60TB server (lol)
+
+Plex itself cannot communicate with Grafana in any way, there simply isn't a way to do this. To make this work I use an **amazing** tool called [Varken](https://github.com/Boerderij/Varken). This external application was created by a bunch of really smart people, and I want to give full credits to them as Varken is an insanely powerful tool and the amount of stuff it can do is amazing.
+
+Varken on it's own is nice, but extra data is always preferred. To communicate with Plex I have installed [Tautulli](https://github.com/Tautulli/Tautulli). All of the data Tautulli collects from Plex I send to Varken, which then visualised that from my Influx DB in Grafana. It sounds complicated, but if you sit down for a few hours you will have this up and running, guaranteed.
+
+Tautulli and Varken collect a ton of data, and can also collect from external services like Radarr/Sonarr/Lidarr etc. Up untill a week ago I wasn't using these myself, but after now also using Radarr/Sonarr it is really nice to be able to show this data in Grafana aswell. Together with Plex/Radarr/Sonarr I make use of [Ombi](https://ombi.io/), which I use for the people that have access to my Plex. Through Ombi my Plex Members can request movies/tv shows, which will be automatically sent to Radarr/Sonarr to download. After that's done it will be moved to Plex so they can watch it.
+
+I used to do requests for movies/shows through Discord/Whatsapp etc, but after finding Ombi I am relieved that they can just do it themselves, rather then me having to do it manually for them, saved me a ton of time. If you are already running Plex and are sharing your libraries with others and you take requests, I **highly** recommend checking out Ombi as it will most likely save you a ton of time too!
