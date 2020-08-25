@@ -10,3 +10,20 @@ Even though my Grafana Dashboard itself looks pretty and all, my entire setup is
 Before I started on this I had no knowledge of antything like Docker of Proxmox, so all of this stuff is just ran on a single box, without any shielding, containerizing or virtualisation. I know that's probably a blasphemy, but I already have plans for a new home server on which I this time **will** use something like Docker or Proxmox.
 
 Below I've posted all the information and links to what I've used to set this up, I hope I can interest others to start using Grafana. Enjoy!
+
+
+## Currently enabled in my Dashboard
+* Stastics from my Home Server 
+* World Ping Times
+* Data used (through Unifi)
+* Unifi Score / Clients
+* Systemd service uptime monitoring
+* P1 Domoticz Gas/Electricity Usage
+* Speedtest CLI
+* ServerStatistics for information about my private Minecraft Server
+* Pi-Hole Exporter
+* Plex
+* Tautulli (for Plex)
+* Ombi (for Plex)
+* Radarr / Sonarr (for Plex)
+* Varken (this is what ties Plex together with Tautulli, Ombi, Radarr / Sonarr
