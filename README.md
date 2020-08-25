@@ -1,6 +1,7 @@
 # Grafana Home Dashboard
 
-![Dashboard](https://i.dedimc.io/pN8aiVeaqX.png)
+
+<img width="800" src="https://i.dedimc.io/pN8aiVeaqX.png" alt="dashboard">
 A requested Github Repo for my Grafana Home Dashboard
 
 # To Start
