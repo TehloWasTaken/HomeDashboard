@@ -108,7 +108,7 @@ We all know that ad-blockers don't really work on browsers, and they certainly d
 
 For those that don't know, Pi-Hole is a network based adblocker which will act as your DNS server and will block the domains on where ads are coming from. This will result in no ads on all of the devices on your network, as long as you set your primary DNS to your Pi-Hole. You can add your own lists of domains to block, I myself mainly use [this one](https://firebog.net/)
 
-Pi-Hole itself has a really nice dashboard, but once again I wanted to see this in Grafana too. Luckily, [Pi-Hole Exporter]https://github.com/eko/pihole-exporter exists! With this, you can take all the data from your Pi-Hole and export it to Grafana. For my own dashboard I used a few of the metrics from the default dash that comes with Exporter, which I changed and fit to my own needs.
+Pi-Hole itself has a really nice dashboard, but once again I wanted to see this in Grafana too. Luckily, [Pi-Hole Exporter](https://github.com/eko/pihole-exporter) exists! With this, you can take all the data from your Pi-Hole and export it to Grafana. For my own dashboard I used a few of the metrics from the default dash that comes with Exporter, which I changed and fit to my own needs.
 
 It is a bit of a pain to setup, so do take your time with this as it is a very tedious process.
 
