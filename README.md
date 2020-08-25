@@ -27,3 +27,10 @@ Below I've posted all the information and links to what I've used to set this up
 * Ombi (for Plex)
 * Radarr / Sonarr (for Plex)
 * Varken (this is what ties Plex together with Tautulli, Ombi, Radarr / Sonarr
+
+## Datasources used
+* InfluxDB
+* Telegraf
+* Prometheus
+
+(I learned all three along the way, and they all have their benefits for me. Some external tools only support one, so mixing them up was the best way to go about it)
