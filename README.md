@@ -122,3 +122,8 @@ Varken on it's own is nice, but extra data is always preferred. To communicate w
 Tautulli and Varken collect a ton of data, and can also collect from external services like Radarr/Sonarr/Lidarr etc. Up untill a week ago I wasn't using these myself, but after now also using Radarr/Sonarr it is really nice to be able to show this data in Grafana aswell. Together with Plex/Radarr/Sonarr I make use of [Ombi](https://ombi.io/), which I use for the people that have access to my Plex. Through Ombi my Plex Members can request movies/tv shows, which will be automatically sent to Radarr/Sonarr to download. After that's done it will be moved to Plex so they can watch it.
 
 I used to do requests for movies/shows through Discord/Whatsapp etc, but after finding Ombi I am relieved that they can just do it themselves, rather then me having to do it manually for them, saved me a ton of time. If you are already running Plex and are sharing your libraries with others and you take requests, I **highly** recommend checking out Ombi as it will most likely save you a ton of time too!
+
+Varken is the key in all of this, as this hooks into everything I talked about above. It can do a lot, and I am only using 10% of what it can do!
+
+# And that's it!
+This is how my entire Grafana Dashboard works. I will in the near future upload my own Dashboard to the Grafana Dashboard page, although it is so highly customized to my own needs that it will need a lot of tweaking to work in your own setup. You're welcome to give it a try however ;)
