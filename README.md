@@ -71,3 +71,34 @@ With the following metrics you can get your data of the last 24 Hours:
 The metrics for the All Time data are exactly the same, I just removed the `increase` and `24h` parts to make it collect the all time data.
 
 I know I can get a LOT more data from Unifi-Poller, but on my Home Dashboard this is all I needed for now. Unifi-Poller is insanely big, and it exports so much data that I didn't even know what to do with it all. They do however have demo dashboards you can use, which will nicely show you all the possible data you can get. You can find these [here](https://grafana.com/grafana/dashboards?search=unifi-poller)
+
+## Uptime
+This one is kind off funny, as my current setup isn't the best, and I later found out that Telegraf can do systemd monitoring itself. I myself however used a Python script to get this information, which I then imported into Telegraf to display it in Grafana. Credits to Alexey Nizhegolenko for this one as he is the original creator of this script.
+
+You can find the Python script [here](https://github.com/ratibor78/srvstatus)
+
+Whenever one of my services goes down it will alert me by making the card for the specific service bright red, telling me something is going on. I could have set up alerts for this, but I didn't see the need to do so.
+
+## Electricity & Gas Usage/Costs
+I. Absolutely. Love. This. When I moved houses around 4 months ago, into a completely newly built home I found out that my gas/electricity meters are smart meters, and have a P1 Port. This port can be used to plug in a RJ-11 to USB cable, which I have connected to my PI. On this Pi I run a tool called [Domoticz](https://www.domoticz.com/), which is **amazing**, you should really check it out if you're into smart home stuff and have a P1 monitor. Domoticz has built-in support for a P1 monitor, so all you have to do is plug it in, tell Domotizc you have a P1 cable and it will automatically collect all the data for you!
+
+![Domoticz](https://i.dedimc.io/BnmQIZNSWU.png)
+
+This ofcourse doesn't look as good as Grafana, and since I wanted only a single dashboard for all my data I would have to use another way to pipe this into Grafana. As of recently, Domoticz actually supports data pushing to Influx by itself, which made my life a lot easier. All you do is select the metrics you want to push, and push them to a new Influx Database. In Grafana you will then be able to select the metrics so you can visualise the data. I created a few simple scripts to get some extra metrics, but the standard ones will be more than enough at first!
+
+With this I can easily see how much electricity/gas I've used today, how much it costs and what my alltime high/low usage is.
+
+*Sidenote, if you have solar panels at home and are using these, the P1 monitor will see that you have them and will also collect how much electricity you are giving back to your provider!*
+
+## Speedtest
+None of the currently existing speedtest-cli tools I found to work well and store it's data properly, so I made use of an external script to pipe the data from speedtest-cli into an Influx database to visualise it in Grafana. The creator of this script is Dutch, so if you are too you can read his information here. If you are not, the script itself will suffice and maybe Google Translate will help you out ;)
+
+[Link](https://eye-vision.homeip.net/internet-snelheid-meten-en-grafana/)
+
+## Hydro Vanilla SMP Season 6 (Minecraft Server)
+The data for my private Minecraft Server has been exported to Grafana using a plugin called ServerStatistics. You can check it out on MC-Market [here](https://www.mc-market.org/resources/4611/)
+
+*it is paid, but if you run a medium size or larger server this will be amazing to have*
+
+This plugin is installed on your Minecraft server, and will export all your data to Prometheus (Influx isn't currently supported :( )
+With this you can export an absolute TON of data. I was surprised as to how much it collects, but all of it is really useful. It even has support for some of the more known and frequently used Plugins, so if you use any of those you can even see your data of that. I myself don't run a Bungee network, but it has support for Bungee networks too!
